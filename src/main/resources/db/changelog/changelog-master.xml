@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.4.xsd">
+  <changeSet author="Milan" id="00">
+    <createTable tableName="Users">
+      <column name="id" type="int" autoIncrement="true">
+        <constraints primaryKey="true" primaryKeyName="PK_USERS" nullable="false"/>
+      </column>
+      <column name="firstName" type="VARCHAR2(255)"/>
+      <column name="secondName" type="VARCHAR2(255)"/>
+    </createTable>
+  </changeSet>
+
+</databaseChangeLog>
