@@ -3,13 +3,61 @@
   xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.4.xsd">
-  <changeSet author="Milan" id="00">
-    <createTable tableName="Users">
-      <column name="id" type="int" autoIncrement="true">
+  <changeSet id="0" author="Milan" context="setting-up-some-databases-to-work-with">
+    <createTable tableName="users">
+      <column name="id" type="BIGINT" autoIncrement="true">
         <constraints primaryKey="true" primaryKeyName="PK_USERS" nullable="false"/>
       </column>
-      <column name="firstName" type="VARCHAR2(255)"/>
-      <column name="secondName" type="VARCHAR2(255)"/>
+      <column name="first_name" type="VARCHAR2(255)"/>
+      <column name="second_name" type="VARCHAR2(255)"/>
+      <column name="email" type="VARCHAR2(255)"/>
+      <column name="date_of_birth" type="date"/>
+      <column name="signed_up" type="timestamp" defaultValueComputed="CURRENT_TIMESTAMP"/>
+    </createTable>
+
+    <createTable tableName="files">
+      <column name="id" type="int" autoIncrement="true">
+        <constraints primaryKey="true" nullable="false"/>
+      </column>
+
+      <column name="file_name" type="VARCHAR2(255)"/>
+      <column name="lob_data" type="BYTEA"/>
+    </createTable>
+
+    <createTable tableName="user_files">
+      <column name="user_id" type="BIGINT">
+        <constraints foreignKeyName="FK_USER_FILES_USERS" references="users(id)"/>
+      </column>
+      <column name="file_id" type="int">
+        <constraints foreignKeyName="FK_USER_FILES_FILES" references="files(id)"/>
+      </column>
+      <column name="deleted" type="boolean" defaultValue="false"/>
+    </createTable>
+
+    <createTable tableName="user_files_metadata">
+      <column name="user_id" type="BIGINT">
+        <constraints foreignKeyName="FK_USER_FILES_METADATA_USERS" references="users(id)"/>
+      </column>
+      <column name="file_id" type="int">
+        <constraints foreignKeyName="FK_USER_FILES_METADATA_FILES" references="files(id)"/>
+      </column>
+      <column name="metadata" type="jsonb"/>
+    </createTable>
+
+    <sql>CREATE TYPE action_enum AS ENUM ('uploaded', 'renamed', 'deleted')</sql>
+
+    <createTable tableName="file_history">
+      <column name="id" type="int" autoIncrement="true">
+        <constraints primaryKey="true" nullable="false"/>
+      </column>
+      <column name="file_id" type="int">
+        <constraints foreignKeyName="FK_FILE_HISTORY_FILES" references="files(id)"/>
+      </column>
+      <column name="user_id" type="BIGINT">
+        <constraints foreignKeyName="FK_FILE_HISTORY_USERS" references="users(id)"/>
+      </column>
+      <column name="action" type="action_enum"/>
+      <column name="timestamp" type="timestamp" defaultValueComputed="CURRENT_TIMESTAMP"/>
     </createTable>
   </changeSet>
 
