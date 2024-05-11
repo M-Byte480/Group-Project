@@ -2,3 +2,5 @@
 .idea/*
 *.iml
 secrets.properties
+out/
+target/
