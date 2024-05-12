@@ -4,3 +4,4 @@
 secrets.properties
 out/
 target/
+db/*
