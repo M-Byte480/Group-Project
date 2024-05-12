@@ -163,3 +163,41 @@ If your console looks like this, with the last line being `Started Application i
 Now you are ready to start developing :)
 
 [Jump back to top](#table-of-contents)
+
+## 5. Unit Tests
+
+### 5.1 Frontend
+For the frontend, we will be using two types of testing frameworks:
+- Karma (Jasmine)
+- And Jest 
+_We can reduce this to one, looking to see which one is better_
+
+You can see in your package.json file that we have the following scripts:
+```json
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build",
+    "watch": "ng build --watch --configuration development",
+    "test": "ng test",
+    "jest": "jest",
+    "jest-coverage": "jest --coverage",
+    "lint": "ng lint",
+    "prettier": "npx prettier . --write",
+    "prettier-check": "npx prettier . --check"
+  },
+  ```
+Each of these is a shorthand to execute each command. So if you were to type `npm run start` it would be the same as typing `ng serve`. Also there will be green run buttons beside each so if you can't remember or don't have the run configurations setup, you can just click the green button.
+
+If Jest still wouldn't run, you can right click on `jest.config.ts` and it should create the run configuration for it. I am tending to lean towards learning Karma more, so watch-out for that.
+
+### 5.2 Backend
+For the backend, we will be using JUnit5 for our testing. You can see (if not added) the JUnit dependency in the `pom.xml` file.
+
+[Jump back to top](#table-of-contents)
+
+## 6. Other Scripts
+### 6.1 Prettier
+Prettier is a code formatter that will format your code to a standard. You can run this by typing `npm run prettier` in the command line. This will format all the files in the directory. If you want to check which files will be formatted, you can run `npm run prettier-check`.
+
+[Jump back to top](#table-of-contents)

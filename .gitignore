@@ -5,3 +5,13 @@ secrets.properties
 out/
 target/
 db/*
+.nx/*
+# Visual Studio Code
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.history/*
+/frontends/node_modules/*
+/frontends/angular/.nx/*
