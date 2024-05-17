@@ -155,7 +155,7 @@ Hit `Modify options` and double check these are ticked:
 
 Once you have the `Use environment variables` ticked, you can now add the following environment variables:
 ```
-PORT=8080;dbName=yourNameForDB;dbPass=yourPasswordForDB
+PORT=8080;dbName=yourNameForDB;dbPass=yourPasswordForDB;dbAddress=localhost;dbPort=5432
 ```
 It should look something like this:
 ![img_8.png](resources/img_8.png)
