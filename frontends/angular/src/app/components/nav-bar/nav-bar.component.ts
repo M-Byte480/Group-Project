@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { routes } from "../../app.routes";
 
 @Component({
   selector: 'app-nav-bar',
@@ -9,4 +10,5 @@ import { Component } from '@angular/core';
 })
 export class NavBarComponent {
 
+  protected readonly routes = routes;
 }
