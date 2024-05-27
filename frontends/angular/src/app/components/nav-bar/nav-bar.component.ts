@@ -1,14 +1,14 @@
-import { Component } from '@angular/core';
-import { routes } from "../../app.routes";
+import { Component } from '@angular/core'
+import { routes } from '../../app.routes'
+import { RouterLink } from '@angular/router'
 
 @Component({
-  selector: 'app-nav-bar',
-  standalone: true,
-  imports: [],
-  templateUrl: './nav-bar.component.html',
-  styleUrl: './nav-bar.component.scss'
+    selector: 'app-nav-bar',
+    standalone: true,
+    imports: [RouterLink],
+    templateUrl: './nav-bar.component.html',
+    styleUrl: './nav-bar.component.scss',
 })
 export class NavBarComponent {
-
-  protected readonly routes = routes;
+    protected readonly routes = routes
 }
