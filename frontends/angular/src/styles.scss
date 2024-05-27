@@ -3,38 +3,42 @@
 @tailwind components;
 @tailwind utilities;
 
+.responsive-container {
+    @apply container mx-auto px-4 max-w-4xl;
+}
+
 .btn {
-   @apply font-bold py-2 px-4 rounded;
- }
+    @apply font-bold py-2 px-4 rounded;
+}
 
 .btn-blue {
-  @apply bg-blue-500 text-white;
+    @apply bg-blue-500 text-white;
 }
 
 .btn-blue:hover {
-  @apply bg-blue-700;
+    @apply bg-blue-700;
 }
 
 .btn-red {
-  @apply bg-red-500 text-white;
+    @apply bg-red-500 text-white;
 }
 
 .btn-red:hover {
-  @apply bg-red-700;
+    @apply bg-red-700;
 }
 
 .btn-green {
-  @apply bg-green-500 text-white;
+    @apply bg-green-500 text-white;
 }
 
 .btn-green:hover {
-  @apply bg-green-700;
+    @apply bg-green-700;
 }
 
 .btn-yellow {
-  @apply bg-yellow-500 text-white;
+    @apply bg-yellow-500 text-white;
 }
 
 .btn-yellow:hover {
-  @apply bg-yellow-700;
+    @apply bg-yellow-700;
 }
