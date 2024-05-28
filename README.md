@@ -95,6 +95,11 @@ ng v
 2. Open CMD and type `pg_ctl init -D db` to create a new database cluster in the directory `db`
 3. Start the database cluster by typing `pg_ctl -D db start`
    - Note: If you get an error, you may need to clear an instance of the database running on localhost and port 5432.
+     - For **Windows**, making sure you are running CMD with **administrator**, this can be fixed by first checking whats running on the port:
+     `netstat -aon | findstr :5432`
+![pid_fix.png](resources/pid_fix.png)
+     - We can then kill the Process ID (PID), using ``taskkill /PID 12520 /F`` (replacing 12520 with your PID)
+     - You can then rerun the ``pg_ctl -D db start`` command
 
 _You may need to edit the `postgresql.conf` file to get it running, by defining which port and `localhost` address to run on. If uncommenting the two doesn't work, change the IP address to `127.0.0.1` from `localhost`_
 ![img.png](resources/postgres_conf.png)
