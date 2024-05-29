@@ -21,8 +21,7 @@ export class NavBarComponent {
 
     constructor(private router: Router) {}
 
-
     onMenuActivation(route: string): void {
-      this.router.navigate([route]);
+        this.router.navigate([route]);
     }
 }
