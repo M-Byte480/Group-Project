@@ -1,6 +1,6 @@
-import { Component } from '@angular/core'
-import { RouterOutlet } from '@angular/router'
-import { NavBarComponent } from './components/nav-bar/nav-bar.component'
+import { Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
+import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 
 @Component({
     selector: 'app-root',
@@ -10,5 +10,5 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component'
     styleUrl: './app.component.scss',
 })
 export class AppComponent {
-    title = 'angular'
+    title = 'angular';
 }
