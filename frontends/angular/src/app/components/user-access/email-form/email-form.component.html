@@ -1,4 +1,4 @@
-<form [formGroup]="emailForm" (ngSubmit)="onSubmit()">
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
   <mat-form-field appearance="fill" class="email-field">
     <mat-label>Email</mat-label>
     <input matInput formControlName="email" placeholder="">
@@ -6,6 +6,7 @@
       Please enter a valid email address
     </mat-error>
   </mat-form-field>
+
 
   <mat-form-field appearance="fill" class="password-field">
     <mat-label>Password</mat-label>
@@ -16,5 +17,5 @@
     </button>
   </mat-form-field>
 
-  <button mat-raised-button color="primary" type="submit" [disabled]="emailForm.invalid && password">Login</button>
+  <button mat-raised-button color="primary" type="submit" [disabled]="email.invalid || password.invalid">Login</button>
 </form>

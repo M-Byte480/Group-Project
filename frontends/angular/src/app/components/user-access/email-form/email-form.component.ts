@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import {
-    FormBuilder,
     FormControl,
     FormGroup,
     ReactiveFormsModule,
@@ -29,27 +28,25 @@ import { MatIcon } from '@angular/material/icon';
     styleUrl: './email-form.component.css',
 })
 export class EmailFormComponent {
-    emailForm: FormGroup;
     passwordVisible: boolean = false;
 
     loginForm: FormGroup = new FormGroup({
-        email: new FormControl<string>(''),
-        password: new FormControl<string>(''),
+        email: new FormControl<string>('', [Validators.required, Validators.email]),
+        password: new FormControl<string>('', [ Validators.required, Validators.minLength(8)]),
     });
 
-    constructor(private formBuilder: FormBuilder) {
-        this.emailForm = this.formBuilder.group({
-            email: ['', [Validators.required, Validators.email]],
-        });
+    constructor() {
     }
 
     onSubmit(): void {
-        if (this.emailForm.valid) {
-            console.log(this.emailForm.value);
-        }
+        console.log(this.loginForm.value);
+    }
+
+    get password(): FormControl {
+        return this.loginForm.get('password') as FormControl;
     }
 
     get email() {
-        return this.emailForm.get('email');
+        return this.loginForm.get('email') as FormControl;
     }
 }
