@@ -31,12 +31,17 @@ export class EmailFormComponent {
     passwordVisible: boolean = false;
 
     loginForm: FormGroup = new FormGroup({
-        email: new FormControl<string>('', [Validators.required, Validators.email]),
-        password: new FormControl<string>('', [ Validators.required, Validators.minLength(8)]),
+        email: new FormControl<string>('', [
+            Validators.required,
+            Validators.email,
+        ]),
+        password: new FormControl<string>('', [
+            Validators.required,
+            Validators.minLength(8),
+        ]),
     });
 
-    constructor() {
-    }
+    constructor() {}
 
     onSubmit(): void {
         console.log(this.loginForm.value);
