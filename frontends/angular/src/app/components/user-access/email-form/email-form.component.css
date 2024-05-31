@@ -1,8 +1,1 @@
-/* Custom styles for the mat-slide-toggle */
-.custom-slide-toggle.mat-slide-toggle-bar {
-  background-color: #4caf50; /* Change the background color of the toggle bar */
-}
 
-.custom-slide-toggle.mat-slide-toggle-thumb {
-  background-color: #ff5722; /* Change the color of the toggle thumb */
-}
